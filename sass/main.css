@@ -40,15 +40,6 @@ body {
   outline: none;
 }
 
-.dark .toggle {
-  background-color: #fff;
-  color: #000;
-}
-
-.dark {
-  background-color: #000;
-}
-
 .clock-container {
   display: flex;
   flex-direction: column;
@@ -59,7 +50,6 @@ body {
   position: relative;
   height: 20rem;
   width: 20rem;
-  background-color: #eee;
 }
 .clock-container .clock .needle {
   background-color: #000;
@@ -72,14 +62,71 @@ body {
   transform-origin: bottom center;
 }
 .clock-container .clock .hour {
-  transform: translate(-50%, -100%) rotate(0deg);
+  transform: translate(-50%, -100%) rotate(10deg);
 }
 .clock-container .clock .minute {
   height: 10rem;
-  transform: translate(-50%, -100%) rotate(0deg);
+  transform: translate(-50%, -100%) rotate(10deg);
 }
 .clock-container .clock .second {
   background-color: #e74c3c;
   height: 10rem;
-  transform: translate(-50%, -100%) rotate(20deg);
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+.clock-container .clock .center-point {
+  background-color: #e74c3c;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.clock-container .clock .center-point::before {
+  content: "";
+  background-color: #000;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.clock-container .time {
+  font-size: 6rem;
+}
+.clock-container .date {
+  color: #aaa;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.clock-container .date-number {
+  background-color: #000;
+  color: #fff;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  line-height: 1.8rem;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in;
+}
+
+.dark {
+  background-color: #000;
+}
+
+.dark .toggle {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark .date-number {
+  background-color: #fff;
+  color: #000;
 }/*# sourceMappingURL=main.css.map */
