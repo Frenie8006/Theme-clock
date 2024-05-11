@@ -20,7 +20,7 @@ $border-color: #144fc6;
 $fill-color: #6ab3f8;
 
 ///////// TRANSITION
-$smooth-trans: all 0.3s linear;
+$smooth-trans: all 0.5s ease-in;
 
 ///////// BREAKPONTS
 $bp-lg: 56.25em;
@@ -58,8 +58,9 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   max-width: 100vw;
+  transition: $smooth-trans;
   @include alignItemCenter();
-  transition: all 0.5s ease-in;
+  flex-direction: column;
 }
 
 //////////////////////////////////////
@@ -84,6 +85,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  // margin-top: 6rem;
 
   .clock {
     position: relative;
@@ -99,15 +101,16 @@ body {
       top: 50%;
       left: 50%;
       transform-origin: bottom center;
+      transition: $smooth-trans;
     }
 
     .hour {
-      transform: translate(-50%, -100%) rotate(10deg);
+      transform: translate(-50%, -100%) rotate(0deg);
     }
 
     .minute {
       height: 10rem;
-      transform: translate(-50%, -100%) rotate(10deg);
+      transform: translate(-50%, -100%) rotate(0deg);
     }
 
     .second {
@@ -142,6 +145,7 @@ body {
 
   .time {
     font-size: 6rem;
+    transition: $smooth-trans;
   }
 
   .date {
@@ -161,14 +165,14 @@ body {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.5s ease-in;
+      transition: $smooth-trans;
     }
   }
 }
 
-// Dark mode setting function
+////// Dark mode setting
 .dark {
-  background-color: $primary-color;
+  background-color: #111;
 }
 
 .dark .toggle {
@@ -176,7 +180,21 @@ body {
   color: $primary-color;
 }
 
+.dark .time {
+  color: $secondary-color;
+}
+
 .dark .date-number {
   background-color: $secondary-color;
   color: $primary-color;
+}
+
+.dark .hour,
+.dark .minute,
+.dark .center-point::before {
+  background-color: $secondary-color !important;
+}
+
+.dark .center-point::before {
+  background-color: $secondary-color;
 }
